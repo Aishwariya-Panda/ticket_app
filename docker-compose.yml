@@ -8,3 +8,5 @@ services:
     environment:
       - ENV=production
     restart: unless-stopped
+    docker compose up --build
+
