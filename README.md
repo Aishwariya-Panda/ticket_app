@@ -3,6 +3,8 @@
 A lightweight event listing & ticket booking demo inspired by your example link.  
 Tech: **FastAPI**, **Jinja2**, **SQLModel (SQLite)**, **Uvicorn**, **HTMX** (progressive enhancement), **Docker**.
 
+link: https://ticket-app-1-0qm3.onrender.com
+
 ## Features
 - Home page with upcoming events
 - Event detail page with ticket purchase flow (no payment gateway; creates a reservation)
