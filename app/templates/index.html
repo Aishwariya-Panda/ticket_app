@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Upcoming Events</h1>
+<div class="grid">
+  {% for e in events %}
+  <a class="card" href="/event/{{ e.id }}">
+    <img src="{{ e.image_url or 'https://images.unsplash.com/photo-1515165562835-c4c4c1d8e4de' }}" alt="{{ e.title }}">
+    <div class="card-body">
+      <h3>{{ e.title }}</h3>
+      <p class="muted">{{ e.venue }} • {{ e.date.strftime('%d %b %Y %I:%M %p') }}</p>
+      <p class="price">{{ 'Free' if e.price == 0 else ('₹' + ('%.2f'|format(e.price))) }}</p>
+    </div>
+  </a>
+  {% else %}
+    <p>No events yet. Head to <a href="/admin">Admin</a> to add one.</p>
+  {% endfor %}
+</div>
+{% endblock %}

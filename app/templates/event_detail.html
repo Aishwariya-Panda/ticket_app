@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<article class="event">
+  <img class="hero" src="{{ event.image_url or 'https://images.unsplash.com/photo-1515165562835-c4c4c1d8e4de' }}" alt="{{ event.title }}">
+  <div class="event-body">
+    <h1>{{ event.title }}</h1>
+    <p class="muted">{{ event.venue }} • {{ event.date.strftime('%d %b %Y %I:%M %p') }}</p>
+    <p>{{ event.description }}</p>
+    <div class="purchase">
+      <div>Price: <strong>{{ 'Free' if event.price == 0 else ('₹' + ('%.2f'|format(event.price))) }}</strong></div>
+      <div>Remaining: <strong>{{ remaining }}</strong></div>
+      <form id="buy-form" hx-post="/api/reservations" hx-ext="json-enc" hx-trigger="submit" hx-target="#buy-result" hx-swap="innerHTML">
+        <input type="hidden" name="event_id" value="{{ event.id }}">
+        <label>Full name
+          <input type="text" name="buyer_name" required>
+        </label>
+        <label>Email
+          <input type="email" name="buyer_email" required>
+        </label>
+        <label>Quantity
+          <input type="number" name="quantity" min="1" max="{{ remaining }}" value="1" required>
+        </label>
+        <button class="btn">Reserve Tickets</button>
+      </form>
+      <div id="buy-result" class="muted"></div>
+    </div>
+  </div>
+</article>
+{% endblock %}

@@ -1,0 +1,33 @@
+/* Minimal, clean styles */
+:root { --bg:#0b0d10; --card:#131720; --text:#e6e9ef; --muted:#98a2b3; --accent:#7c3aed; --danger:#ef4444; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1000px; margin: 0 auto; padding: 16px; }
+.header, .footer { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.brand { font-weight:800; letter-spacing:0.3px; }
+.btn { background:var(--accent); color:white; padding:10px 14px; border-radius:14px; border:none; cursor:pointer; font-weight:600; }
+.btn:hover { opacity:0.95; }
+.btn.danger { background: var(--danger); }
+.grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px; }
+.card { background:var(--card); border:1px solid #212939; border-radius:16px; overflow:hidden; display:block; }
+.card img { width:100%; height:160px; object-fit:cover; display:block; }
+.card-body { padding:12px; }
+.muted { color:var(--muted); font-size:14px; }
+.price { margin-top:6px; font-weight:700; }
+.footer { margin: 24px auto; color: var(--muted); font-size: 14px; }
+.event { display:grid; grid-template-columns: 1fr; gap:16px; }
+.hero { width:100%; border-radius:16px; height:280px; object-fit:cover; }
+.event-body { background:var(--card); border:1px solid #212939; border-radius:16px; padding:16px; }
+.purchase { margin-top:10px; display:grid; gap:10px; }
+label { display:grid; gap:6px; font-size:14px; color:var(--muted); }
+input, textarea { background:#0f1420; color:var(--text); border:1px solid #2a3449; border-radius:12px; padding:10px 12px; outline:none; }
+input:focus, textarea:focus { border-color:#3c4c6e; }
+.admin-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+.list { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+.list-item { background:#0f1420; border:1px solid #2a3449; border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:space-between; }
+.bold { font-weight:700; }
+@media (max-width: 720px) {
+  .admin-grid { grid-template-columns: 1fr; }
+  .hero { height: 200px; }
+}
